@@ -5,6 +5,8 @@ Golang package for CS:GO (or other Source Dedicated Server) RCON Protocol client
 
 ## Usage
 
+> For detailed docs, see [GoDoc](https://godoc.org/github.com/forewing/csgo-rcon)
+
 1. Import the package
 
 ```go
