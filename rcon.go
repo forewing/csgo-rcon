@@ -35,8 +35,8 @@ const (
 )
 
 const (
-	// DefaultPort of the srcds RCON
-	DefaultPort = 27015
+	// DefaultAddress of the srcds RCON
+	DefaultAddress = "127.0.0.1:27015"
 
 	// DefaultPassword is empty
 	DefaultPassword = ""
