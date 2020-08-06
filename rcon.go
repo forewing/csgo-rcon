@@ -4,6 +4,7 @@
 package rcon
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/binary"
 	"errors"
@@ -217,6 +218,7 @@ func (c *Client) receive() (string, error) {
 	if c.tcpConn == nil {
 		return "", errNoConnection
 	}
+	reader := bufio.NewReader(c.tcpConn)
 
 	responded := false
 	var message bytes.Buffer
@@ -226,7 +228,7 @@ func (c *Client) receive() (string, error) {
 	for {
 		// read & parse packet length
 		packetSizeBuffer := make([]byte, 4)
-		if _, err := io.ReadFull(c.tcpConn, packetSizeBuffer); err != nil {
+		if _, err := io.ReadFull(reader, packetSizeBuffer); err != nil {
 			return "", errConnectionClosed
 		}
 		packetSize := int32(binary.LittleEndian.Uint32(packetSizeBuffer))
@@ -236,7 +238,7 @@ func (c *Client) receive() (string, error) {
 
 		// read packet data
 		packetBuffer := make([]byte, packetSize)
-		if _, err := io.ReadFull(c.tcpConn, packetBuffer); err != nil {
+		if _, err := io.ReadFull(reader, packetBuffer); err != nil {
 			return "", errConnectionClosed
 		}
 
@@ -284,9 +286,10 @@ func (c *Client) receive() (string, error) {
 		message.Write(packetBuffer[8:pos1])
 		message2.Write(packetBuffer[pos1+1 : pos2])
 
-		// select here
-
-		break
+		// if no packets waiting, and last packet is small enough, stop here
+		if _, err := reader.Peek(1); err != nil && packetSize < probablySplitIfLargerThan {
+			break
+		}
 	}
 
 	if !responded {
