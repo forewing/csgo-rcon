@@ -1,11 +1,14 @@
 # csgo-rcon
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/forewing/csgo-rcon?style=flat-square)](https://goreportcard.com/report/github.com/forewing/csgo-rcon)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/forewing/csgo-rcon?style=flat-square)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/forewing/csgo-rcon)](https://pkg.go.dev/github.com/forewing/csgo-rcon)
+
 Golang package for CS:GO (or other Source Dedicated Server) RCON Protocol client.
 
 > For the protocol specification, go to [Source RCON Protocol from Valve](http://developer.valvesoftware.com/wiki/Source_RCON_Protocol)
 
 ## Usage
-
-> For detailed docs, see [GoDoc](https://godoc.org/github.com/forewing/csgo-rcon)
 
 1. Import the package
 
