@@ -23,3 +23,57 @@ c := rcon.New("10.114.51.41:27015", "password", time.Seconds * 2)
 ```
 
 3. Execute commands use `*Client.Execute(cmd string)`. On success, a message and nil error will be returned. On failure, an empty message and error will be returned.
+
+## Command Line Tool
+
+### Install
+
+```
+go get -u github.com/forewing/csgo-rcon/cmd/csgo-rcon
+```
+
+### Usage
+
+```
+Usage of csgo-rcon:
+  -a address
+        address of the server RCON, in the format of HOST:PORT. (default "127.0.0.1:27015")
+  -c file
+        load configs from file instead of flags.
+  -f file
+        read commands from file, "-" for stdin. From arguments if not set.
+  -i    interact with the console.
+  -p password
+        password of the RCON.
+  -t timeout
+        timeout of the connection (seconds). (default 1)
+```
+
+1. From arguments
+
+```
+$ csgo-rcon -c config.json mp_warmuptime 999
+L **/**/20** - **:**:**: rcon from "**.**.**.**:***": command "mp_warmuptime 999"
+```
+
+2. From file (`-` for stdin)
+
+```
+$ csgo-rcon -c config.json -f commands.cfg
+```
+
+3. Interactive
+
+```
+$ csgo-rcon -c config.json -i
+>>> bot_add_ct
+L **/**/20** - **:**:**: "Derek<4><BOT><>" connected, address ""
+L **/**/20** - **:**:**: "Derek<4><BOT>" switched from team <Unassigned> to <CT>
+L **/**/20** - **:**:**: "Derek<4><BOT><>" entered the game
+L **/**/20** - **:**:**: rcon from "**.**.**.**:***": command "bot_add_ct"
+>>> users
+<slot:userid:"name">
+0 users
+L **/**/20** - **:**:**: rcon from "**.**.**.**:***": command "users"
+>>> ^C
+```
