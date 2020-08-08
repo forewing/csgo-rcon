@@ -8,6 +8,8 @@ Golang package for CS:GO (or other Source Dedicated Server) RCON Protocol client
 
 > For the protocol specification, go to [Source RCON Protocol from Valve](http://developer.valvesoftware.com/wiki/Source_RCON_Protocol)
 
+> Need a web-based admin panel? Check it out at [forewing/webrcon-server](https://github.com/forewing/webrcon-server)!
+
 ## Usage
 
 1. Import the package
