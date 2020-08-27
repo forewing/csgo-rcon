@@ -88,7 +88,7 @@ func New(address, password string, timeout time.Duration) *Client {
 
 // Execute the command.
 // Execute once if no "\n" provided. Return result message and nil on success, empty string and an error on failure.
-// If cmd includes "\n", it is treated by a script file. Splitted and trimmed into lines. Line starts with "//" will
+// If cmd includes "\n", it is treated as a script file. Splitted and trimmed into lines. Line starts with "//" will
 // be treated as comment and ignored. When all commands seccess, concatted messages and nil will be returned.
 // Once failed, concatted previous succeeded messages and an error will be returned.
 func (c *Client) Execute(cmd string) (string, error) {
