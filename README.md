@@ -24,7 +24,9 @@ import "github.com/forewing/csgo-rcon"
 c := rcon.New("10.114.51.41:27015", "password", time.Seconds * 2)
 ```
 
-3. Execute commands use `*Client.Execute(cmd string)`. On success, a message and nil error will be returned. On failure, an empty message and error will be returned.
+3. Execute commands use `*Client.Execute(cmd string)`. Execute once if no "\n" provided. Return result message and nil on success, empty string and an error on failure. 
+
+    If cmd includes "\n", it is treated as a script file. Splitted and trimmed into lines. Line starts with "//" will be treated as comment and ignored. When all commands seccess, concatted messages and nil will be returned. Once failed, concatted previous succeeded messages and an error will be returned.
 
 ## Command Line Tool
 
