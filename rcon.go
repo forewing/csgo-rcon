@@ -51,13 +51,13 @@ const (
 )
 
 var (
-	errNoConnection     = errors.New("no connection")
-	errDialTCPFail      = errors.New("dial TCP fail")
-	errConnectionClosed = errors.New("connection closed")
-	errBadPassword      = errors.New("bad password")
-	errInvalidResponse  = errors.New("invalid response")
-	errCrapBytes        = errors.New("response contains crap bytes")
-	errWaitingTimeout   = errors.New("timeout while waiting for reply")
+	ErrNoConnection     = errors.New("no connection")
+	ErrDialTCPFail      = errors.New("dial TCP fail")
+	ErrConnectionClosed = errors.New("connection closed")
+	ErrBadPassword      = errors.New("bad password")
+	ErrInvalidResponse  = errors.New("invalid response")
+	ErrCrapBytes        = errors.New("response contains crap bytes")
+	ErrWaitingTimeout   = errors.New("timeout while waiting for reply")
 )
 
 // A Client of RCON protocol to srcds
@@ -147,7 +147,7 @@ func (c *Client) executeRetry(cmd string) (string, error) {
 		}
 		if auth != authSuccess {
 			c.disconnect()
-			return "", errBadPassword
+			return "", ErrBadPassword
 		}
 	}
 
@@ -173,7 +173,7 @@ func (c *Client) connect() error {
 
 	tcpConn, ok := conn.(*net.TCPConn)
 	if !ok {
-		return errDialTCPFail
+		return ErrDialTCPFail
 	}
 
 	c.tcpConn = tcpConn
@@ -183,7 +183,7 @@ func (c *Client) connect() error {
 
 func (c *Client) send(cmd int, message string) error {
 	if c.tcpConn == nil {
-		return errNoConnection
+		return ErrNoConnection
 	}
 
 	if len(message) > maxCommandLength {
@@ -216,7 +216,7 @@ func (c *Client) send(cmd int, message string) error {
 
 func (c *Client) receive() (string, error) {
 	if c.tcpConn == nil {
-		return "", errNoConnection
+		return "", ErrNoConnection
 	}
 	reader := bufio.NewReader(c.tcpConn)
 
@@ -229,7 +229,7 @@ func (c *Client) receive() (string, error) {
 		// read & parse packet length
 		packetSizeBuffer := make([]byte, 4)
 		if _, err := io.ReadFull(reader, packetSizeBuffer); err != nil {
-			return "", errConnectionClosed
+			return "", ErrConnectionClosed
 		}
 		packetSize := int32(binary.LittleEndian.Uint32(packetSizeBuffer))
 		if packetSize < minMessageLength || packetSize > maxMessageLength {
@@ -239,14 +239,14 @@ func (c *Client) receive() (string, error) {
 		// read packet data
 		packetBuffer := make([]byte, packetSize)
 		if _, err := io.ReadFull(reader, packetBuffer); err != nil {
-			return "", errConnectionClosed
+			return "", ErrConnectionClosed
 		}
 
 		// parse the packet
 		requestID := int32(binary.LittleEndian.Uint32(packetBuffer[0:4]))
 		if requestID == -1 {
 			c.disconnect()
-			return "", errBadPassword
+			return "", ErrBadPassword
 		}
 		if requestID != c.reqID {
 			return "", fmt.Errorf("inconsistent requestID: %v, expected: %v", requestID, c.reqID)
@@ -258,7 +258,7 @@ func (c *Client) receive() (string, error) {
 			return authSuccess, nil
 		}
 		if response != serverdataResponseValue {
-			return "", errInvalidResponse
+			return "", ErrInvalidResponse
 		}
 
 		// split message
@@ -279,7 +279,7 @@ func (c *Client) receive() (string, error) {
 			}
 		}
 		if pos2+1 != int(packetSize) {
-			return "", errCrapBytes
+			return "", ErrCrapBytes
 		}
 
 		// write messages
@@ -293,7 +293,7 @@ func (c *Client) receive() (string, error) {
 	}
 
 	if !responded {
-		return "", errWaitingTimeout
+		return "", ErrWaitingTimeout
 	}
 
 	if message2.Len() != 0 {
