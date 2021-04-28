@@ -1,7 +1,7 @@
 # csgo-rcon
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/forewing/csgo-rcon?style=flat-square)](https://goreportcard.com/report/github.com/forewing/csgo-rcon)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/forewing/csgo-rcon?style=flat-square)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/forewing/csgo-rcon?style=flat-square)](https://github.com/forewing/csgo-rcon/releases/latest)
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/forewing/csgo-rcon)](https://pkg.go.dev/github.com/forewing/csgo-rcon)
 
 Golang package for CS:GO (or other Source Dedicated Server) RCON Protocol client.
