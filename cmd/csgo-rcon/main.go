@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	readline "github.com/chzyer/readline"
+	"github.com/chzyer/readline"
 	rcon "github.com/forewing/csgo-rcon"
 )
 
