@@ -47,6 +47,8 @@ Usage of csgo-rcon:
   -f file
         read commands from file, "-" for stdin. From arguments if not set.
   -i    interact with the console.
+  -m  file
+        read completions from file
   -p password
         password of the RCON.
   -t timeout
@@ -81,3 +83,15 @@ L **/**/20** - **:**:**: rcon from "**.**.**.**:***": command "bot_add_ct"
 L **/**/20** - **:**:**: rcon from "**.**.**.**:***": command "users"
 >>> ^C
 ```
+
+4 .Completion
+
+``` sh
+# First download the completion file from your server
+csgo-rcon -c config.json cvarlist > cmds.txt 
+# and remove top 2 and bottom 2 lines
+tail -n +3 cmds.txt | head -n -2 > cmds.txt.bak && mv cmds.txt.bak cmds.txt
+# then use -m flag to specify the completion file
+csgo-rcon -c config.json -i -m cmds.txt
+```
+
