@@ -24,7 +24,7 @@ import "github.com/forewing/csgo-rcon"
 c := rcon.New("10.114.51.41:27015", "password", time.Seconds * 2)
 ```
 
-3. Execute commands use `*Client.Execute(cmd string)`. Execute once if no "\n" provided. Return result message and nil on success, empty string and an error on failure. 
+3. Execute commands use `*Client.Execute(cmd string)`. Execute once if no "\n" provided. Return result message and nil on success, empty string and an error on failure.
 
     If cmd includes "\n", it is treated as a script file. Splitted and trimmed into lines. Line starts with "//" will be treated as comment and ignored. When all commands seccess, concatted messages and nil will be returned. Once failed, concatted previous succeeded messages and an error will be returned.
 
@@ -35,6 +35,8 @@ c := rcon.New("10.114.51.41:27015", "password", time.Seconds * 2)
 ```
 go get -u github.com/forewing/csgo-rcon/cmd/csgo-rcon
 ```
+
+Or download from [release page](https://github.com/forewing/csgo-rcon/releases/latest).
 
 ### Usage
 
@@ -88,7 +90,7 @@ L **/**/20** - **:**:**: rcon from "**.**.**.**:***": command "users"
 
 ``` sh
 # First download the completion file from your server
-csgo-rcon -c config.json cvarlist > cmds.txt 
+csgo-rcon -c config.json cvarlist > cmds.txt
 # and remove top 2 and bottom 2 lines
 tail -n +3 cmds.txt | head -n -2 > cmds.txt.bak && mv cmds.txt.bak cmds.txt
 # then use -m flag to specify the completion file
