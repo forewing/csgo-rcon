@@ -224,7 +224,7 @@ func (c *Client) receive() (string, error) {
 	var message bytes.Buffer
 	var message2 bytes.Buffer
 
-	// // response may be split into multiple packets, we don't know how many, so we loop until we decide to finish
+	// response may be split into multiple packets, we don't know how many, so we loop until we decide to finish
 	for {
 		// read & parse packet length
 		packetSizeBuffer := make([]byte, 4)
