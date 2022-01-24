@@ -3,11 +3,7 @@ updates:
 - package-ecosystem: gomod
   directory: "/"
   schedule:
-    interval: weekly
-    time: "12:00"
-    timezone: Asia/Shanghai
+    interval: daily
+    time: "00:00"
+    timezone: Etc/UTC
   open-pull-requests-limit: 10
-  reviewers:
-  - forewing
-  assignees:
-  - forewing
