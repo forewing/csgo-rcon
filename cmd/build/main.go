@@ -39,7 +39,7 @@ func main() {
 			gobuild.PlaceholderVersion,
 			gobuild.PlaceholderOS,
 			gobuild.PlaceholderArch)
-		target.Compress = gobuild.CompressAuto
+		target.Compress = gobuild.CompressZip
 		target.Platforms = gobuild.PlatformCommon
 	}
 	err := target.Build()
