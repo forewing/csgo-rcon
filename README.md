@@ -21,7 +21,7 @@ import "github.com/forewing/csgo-rcon"
 2. Create a client with `rcon.New(address, password string, timeout time.Duration)`, assuming your server rcon are hosted at `10.114.51.41:27015`, with password `password`, and you want the connection timeout to be 2 seconds.
 
 ```go
-c := rcon.New("10.114.51.41:27015", "password", time.Seconds * 2)
+c := rcon.New("10.114.51.41:27015", "password", time.Second * 2)
 ```
 
 3. Execute commands use `*Client.Execute(cmd string)`. Execute once if no "\n" provided. Return result message and nil on success, empty string and an error on failure.
