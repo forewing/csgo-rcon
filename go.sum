@@ -10,8 +10,8 @@ github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/dsnet/compress v0.0.1 h1:PlZu0n3Tuv04TzpfPbrnI0HW/YwodEXDS+oPKahKF0Q=
 github.com/dsnet/compress v0.0.1/go.mod h1:Aw8dCMJ7RioblQeTqt88akK31OvO8Dhf5JflhBbQEHo=
 github.com/dsnet/golib v0.0.0-20171103203638-1ea166775780/go.mod h1:Lj+Z9rebOhdfkVLjJ8T6VcRQv3SXugXy999NBtR9aFY=
-github.com/forewing/gobuild v1.1.1 h1:eCtGqUNyjP8XvqDICG8WN6S8Lo5JyACc55NdS3H/6nM=
-github.com/forewing/gobuild v1.1.1/go.mod h1:Iq1H8foc1dNSMylJYolDr6fB+5Q+9gdMCuyWVZBpfPQ=
+github.com/forewing/gobuild v1.1.2 h1:p336+WU1e0wIWttoeXWB7emKWjqD8mM7gvZ2hWy5q1c=
+github.com/forewing/gobuild v1.1.2/go.mod h1:f64Y49pcmjwPt4RlhwuUwjAOYo5nMkbUo/+KsaXHKT0=
 github.com/golang/snappy v0.0.4 h1:yAGX7huGHXlcLOEtBnF4w7FQwA26wojNCwOYAEhLjQM=
 github.com/golang/snappy v0.0.4/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
 github.com/jackmordaunt/icns/v2 v2.1.3 h1:LBBT9k6Rvnbx+peHFNVQU9klGs0jGol/pTd0EJf0+l8=
@@ -23,8 +23,8 @@ github.com/klauspost/cpuid v1.2.0/go.mod h1:Pj4uuM528wm8OyEC2QMXAi2YiTZ96dNQPGgo
 github.com/klauspost/pgzip v1.2.5 h1:qnWYvvKqedOF2ulHpMG72XQol4ILEJ8k2wwRl/Km8oE=
 github.com/klauspost/pgzip v1.2.5/go.mod h1:Ch1tH69qFZu15pkjo5kYi6mth2Zzwzt50oCQKQE9RUs=
 github.com/kr/fs v0.1.0/go.mod h1:FFnZGqtBN9Gxj7eW1uZ42v5BccTP0vu6NEaFoC2HwRg=
-github.com/mholt/archiver/v4 v4.0.0-alpha.4 h1:QJ4UuWgavPynEX3LXxClHDRGzYcgcvTtAMp8az7spuw=
-github.com/mholt/archiver/v4 v4.0.0-alpha.4/go.mod h1:J7SYS/UTAtnO3I49RQEf+2FYZVwo7XBOh9Im43VrjNs=
+github.com/mholt/archiver/v4 v4.0.0-alpha.5 h1:eaEYytBjRNxXhSMPJTO6G6B5NxEm1bHkVmDB1jWSVP4=
+github.com/mholt/archiver/v4 v4.0.0-alpha.5/go.mod h1:J7SYS/UTAtnO3I49RQEf+2FYZVwo7XBOh9Im43VrjNs=
 github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646 h1:zYyBkD/k9seD2A7fsi6Oo2LfFZAehjjQMERAvZLEDnQ=
 github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646/go.mod h1:jpp1/29i3P1S/RLdc7JQKbRpFeM1dOBd8T9ki5s+AY8=
 github.com/nwaples/rardecode/v2 v2.0.0-beta.2 h1:e3mzJFJs4k83GXBEiTaQ5HgSc/kOK8q0rDaRO0MPaOk=
