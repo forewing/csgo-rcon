@@ -26,7 +26,28 @@ c := rcon.New("10.114.51.41:27015", "password", time.Second * 2)
 
 3. Execute commands use `*Client.Execute(cmd string)`. Execute once if no "\n" provided. Return result message and nil on success, empty string and an error on failure.
 
-    If cmd includes "\n", it is treated as a script file. Splitted and trimmed into lines. Line starts with "//" will be treated as comment and ignored. When all commands seccess, concatted messages and nil will be returned. Once failed, concatted previous succeeded messages and an error will be returned.
+```go
+// Execute a single command
+msg, err := c.Execute("bot_add_ct")
+
+// Execute multiple commands at once
+// Source engine games treat `;` as command separator
+// May not work in other games, test before use
+msg, err := c.Execute("game_mode 1; game_type 0; changelevel de_dust2")
+```
+
+4. Note: If `cmd` includes "\n", it is treated as a script file. Splitted and trimmed into lines. Line starts with "//" will be treated as comment and ignored. When all commands seccess, concatted messages and nil will be returned. Once failed, concatted previous succeeded messages and an error will be returned.
+
+```go
+cmd := `game_mode 1
+game_type 0
+// run_game half_life_3 (ignored)
+changelevel de_dust2`
+
+// Execute multiple commands separately
+msg, err := c.Execute(cmd)
+```
+
 
 ## Command Line Tool
 
